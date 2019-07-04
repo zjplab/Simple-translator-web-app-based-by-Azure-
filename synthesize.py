@@ -3,7 +3,7 @@ from xml.etree import ElementTree
 
 class TextToSpeech(object):
     def __init__(self, input_text, voice_font):
-        subscription_key = 'YOUR_SPEECH_SERVICES_SUBSCRIPTION_KEY'
+        subscription_key = '04fd68743d4b4454a69f5d2c8d82c5f7'
         self.subscription_key = subscription_key
         self.input_text = input_text
         self.voice_font = voice_font
@@ -12,7 +12,7 @@ class TextToSpeech(object):
 
     # This function performs the token exchange.
     def get_token(self):
-        fetch_token_url = 'https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken'
+        fetch_token_url = 'https://centralus.api.cognitive.microsoft.com/sts/v1.0/issuetoken'
         headers = {
             'Ocp-Apim-Subscription-Key': self.subscription_key
         }
@@ -21,7 +21,7 @@ class TextToSpeech(object):
 
     # This function calls the TTS endpoint with the access token.
     def save_audio(self):
-        base_url = 'https://westus.tts.speech.microsoft.com/'
+        base_url = 'https://centralus.tts.speech.microsoft.com/'
         path = 'cognitiveservices/v1'
         constructed_url = base_url + path
         headers = {
